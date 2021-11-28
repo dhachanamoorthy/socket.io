@@ -5,16 +5,35 @@
     <title>SocketIO Client</title>
     <script src="/socket.io/socket.io.js"></script>
   </head>
+  <style>
+    .container{
+      width: 80%;
+      height: 80vh;
+    }
+    img{
+      width:512px;
+      height:512px;
+    }
+    input{
+      width: 100%;
+      position: relative;
+      
+    }
+  </style>
   <body>
 
     <!-- File input and image output -->
-    <input type="file" id="input">
-    <img src="" id="output">
+    <div class="container">
+      <input type="file" id="input">
+      <img src="" id="output">
+    </div>
 
+
+   
     <!-- Client Code -->
     <script type="text/javascript">
 
-      // Get WebSocket
+        // Get WebSocket
       var socket = io();
 
       // Get DOM elements
