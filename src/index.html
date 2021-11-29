@@ -41,12 +41,15 @@
       display: block;
     }
 
-    .room {}
+    .room {
+      text-align: center;
+    }
 
     .room img {
       width: 256px;
       height: 256px;
     }
+    
   </style>
 </head>
 
@@ -59,9 +62,8 @@
       <button id="join">Join Room</button>
     </div>
     <div class="room">
-      Welcome to New Live Audio Chat
-      <!-- <input type="file" id="input"> -->
-      <!-- <img src="" id="output"> -->
+      <h3>Welcome to New Live Audio Chat</h3>
+      <span id="displayroom">Room Name : </span>
     </div>
   </div>
 
@@ -76,6 +78,7 @@
     // Get DOM elements
     var username = "";
     $('#join').click(() => {
+      navigator.mediaDevices.getUserMedia({ audio: true });
       username = $("#username").val();
       roomname = $('#roomname').val();
 
@@ -86,6 +89,7 @@
         alert("required roomname!!!");
       }
       else {
+        $("#displayroom").append(roomname)
         $(".form").hide();
         $(".room").show();
 
@@ -103,20 +107,18 @@
 
             mediaRecorder.addEventListener("stop", () => {
               // const audioBlob = new Blob(audioChunks);
-              console.log(socket.emit("audioblob", audioChunks));
+              socket.emit("audioblob", audioChunks);
               audioChunks =[];
               
             });
 
             setInterval(() => {
-              console.log("called interval");
               mediaRecorder.stop();
               mediaRecorder.start();
-            }, 300);
+            }, 30);
           });
         socket.on("audioblob", function (audioChunks) {
           const audioBlob = new Blob(audioChunks);
-          console.log("got items");
           const audioUrl = URL.createObjectURL(audioBlob);
           const audio = new Audio(audioUrl);
           audio.play();
