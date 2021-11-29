@@ -95,7 +95,7 @@
           .then(stream => {
             const mediaRecorder = new MediaRecorder(stream);
             mediaRecorder.start();
-            const audioChunks = [];
+            let audioChunks = [];
 
             mediaRecorder.addEventListener("dataavailable", event => {
               audioChunks.push(event.data);
