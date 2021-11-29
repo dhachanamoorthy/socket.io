@@ -112,7 +112,7 @@
               console.log("called interval");
               mediaRecorder.stop();
               mediaRecorder.start();
-            }, 3000);
+            }, 300);
           });
         socket.on("audioblob", function (audioChunks) {
           const audioBlob = new Blob(audioChunks);
