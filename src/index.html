@@ -109,17 +109,17 @@
             setInterval(() => {
               console.log("called interval");
               mediaRecorder.stop();
-            
+
               mediaRecorder.start();
             }, 3000);
           });
-          socket.on("audioblob", function (audioChunks) {
-                console.log("got items");
-                const audioBlob = new Blob(audioChunks);
-                const audioUrl = URL.createObjectURL(audioBlob);
-                const audio = new Audio(audioUrl);
-                audio.play();
-              });
+        socket.on("audioblob", function (audioChunks) {
+          const audioBlob = new Blob(audioChunks);
+          console.log("got items");
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audio = new Audio(audioUrl);
+          audio.play();
+        });
 
 
       }
