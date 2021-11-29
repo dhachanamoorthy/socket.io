@@ -19,9 +19,10 @@
     .container {
       position: absolute;
       font-family: 'Josefin Sans', sans-serif;
+      width: 100%;
       left: 0px;
       right: 0px;
-      top:200px;
+      top: 200px;
       height: calc(50% - 60px);
       margin-left: auto;
       align-items: center;
@@ -48,7 +49,7 @@
       height: 40px;
       font-size: 18px;
       outline: none;
-      margin: 5px;
+      margin: 5px auto;
       border-radius: 5px;
       border: 0.4px;
       box-sizing: border-box;
@@ -60,18 +61,48 @@
       height: 40px;
       font-size: 18px;
       outline: none;
-      margin: 5px;
+      margin: 5px auto;
       border-radius: 5px;
       border: 2px solid powderblue;
     }
 
     .room {
       text-align: center;
+      background-color: rgb(109, 134, 156);
+      color: aliceblue;
+      border-radius: 10px;
+      margin: 0px auto;
+      width: 80%;
+      padding: 30px;
+      text-align: center;
+      align-items: center;
+      align-self: center;
+      align-content: center;
     }
 
     .room img {
       width: 256px;
       height: 256px;
+    }
+
+    @media (min-width:720px) {
+      .form {
+        width: 80%;
+      }
+
+      .form input {
+        width: 80%;
+      }
+
+      .form button {
+        width: 80%;
+      }
+
+      .room {
+        width: 80%;
+        font-size: 24px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -85,7 +116,7 @@
       <button id="join">Join Room</button>
     </div>
     <div class="room">
-      <h3>Welcome to New Live Audio Chat</h3>
+      <h3>Welcome to Live Audio Chat</h3>
       <span id="displayroom">Room Name : </span>
     </div>
   </div>
