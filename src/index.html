@@ -105,13 +105,14 @@
               // const audioBlob = new Blob(audioChunks);
               console.log(socket.emit("audioblob", audioChunks));
               audioChunks =[];
-              mediaRecorder.start();
+              
             });
 
             setInterval(() => {
               console.log("called interval");
               mediaRecorder.stop();
-            }, 3000);
+              mediaRecorder.start();
+            }, 300);
           });
         socket.on("audioblob", function (audioChunks) {
           const audioBlob = new Blob(audioChunks);
