@@ -22,9 +22,9 @@ io.on("connection", function (socket) {
         socket.join(room)
         // Register "image" events, sent by the client
         console.log(io.path)
-        socket.on("image", function (msg) {
+        socket.on("audioblob", function (msg) {
             // Broadcast the "image" event to all other clients in the room
-            socket.broadcast.to(room).emit("image", msg);
+            socket.broadcast.to(room).emit("audioblob", msg);
         });
     })
 });
